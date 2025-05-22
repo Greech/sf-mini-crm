@@ -5,12 +5,16 @@ import { CustomerService } from './customer.service';
 @Component({
   selector: 'app-customer-list',
   template: `
-    <h2>Klienci</h2>
-    <ul>
-      <li *ngFor="let customer of service.getCustomers()" (click)="goToDetails(customer.id)">
-        {{ customer.name }} ({{ customer.email }})
-      </li>
-    </ul>
+    <mat-card style="margin: 24px; padding: 16px;">
+      <h2>Klienci</h2>
+      <mat-list>
+        <mat-list-item *ngFor="let customer of service.getCustomers()" (click)="goToDetails(customer.id)" style="cursor:pointer;">
+          <mat-icon matListIcon fontSize="small" style="font-size: 20px;">person</mat-icon>
+          <div matLine>{{ customer.name }}</div>
+          <div matLine>{{ customer.email }}</div>
+        </mat-list-item>
+      </mat-list>
+    </mat-card>
   `,
 })
 export class CustomerListComponent {

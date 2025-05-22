@@ -5,18 +5,23 @@ import { CustomerService } from './customer.service';
 @Component({
   selector: 'app-customer-details',
   template: `
-    <div *ngIf="customer">
+    <mat-card *ngIf="customer" style="margin: 24px; padding: 16px;">
       <h2>{{ customer.name }}</h2>
       <p>{{ customer.email }}</p>
 
       <h3>Notatki</h3>
-      <ul>
-        <li *ngFor="let note of customer.notes">{{ note }}</li>
-      </ul>
+      <mat-list>
+        <mat-list-item *ngFor="let note of customer.notes">{{ note }}</mat-list-item>
+      </mat-list>
 
-      <input [(ngModel)]="newNote" />
-      <button (click)="addNote()">Dodaj notatkę</button>
-    </div>
+      <div style="margin-top: 16px; display: flex; gap: 8px; align-items: center;">
+        <mat-form-field appearance="outline" style="flex: 1;">
+          <mat-label>Dodaj notatkę</mat-label>
+          <input matInput [(ngModel)]="newNote" />
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="addNote()">Dodaj</button>
+      </div>
+    </mat-card>
   `,
 })
 export class CustomerDetailsComponent {
