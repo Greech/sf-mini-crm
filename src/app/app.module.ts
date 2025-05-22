@@ -5,6 +5,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { CustomerListComponent } from './customer-list.component';
 import { CustomerDetailsComponent } from './customer-details.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 const routes: Routes = [
   { path: '', component: CustomerListComponent },
@@ -13,8 +15,10 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [AppComponent, CustomerListComponent, CustomerDetailsComponent],
-  imports: [BrowserModule, FormsModule, RouterModule.forRoot(routes)],
-  providers: [],
+  imports: [BrowserModule, FormsModule, RouterModule.forRoot(routes), MatToolbarModule],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
