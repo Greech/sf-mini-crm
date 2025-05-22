@@ -9,7 +9,7 @@ import { CustomerService } from './customer.service';
       <h2>Klienci</h2>
       <mat-list>
         <mat-list-item *ngFor="let customer of service.getCustomers()" (click)="goToDetails(customer.id)" style="cursor:pointer;">
-          <mat-icon matListIcon fontSize="small" style="font-size: 20px;">person</mat-icon>
+          <mat-icon matListItemIcon fontSize="small">person</mat-icon>
           <div matLine>{{ customer.name }}</div>
           <div matLine>{{ customer.email }}</div>
         </mat-list-item>
